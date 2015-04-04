@@ -2,13 +2,20 @@
   "name": "node-dependency",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "find src -name \"*.ts\" | xargs tsc --module CommonJS",
+    "test": "node test/test-runner.js",
+    "pretest": "npm run build"
   },
   "typescript": {
-    "definition": "./node-dependency.d.ts"
+    "definition": "./src/node-dependency.d.ts"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.6.0"
+  },
+  "devDependencies": {
+  }
 }
